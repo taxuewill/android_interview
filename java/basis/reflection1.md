@@ -158,6 +158,49 @@ field.setInt(obj, 10);
 //获取obj对象的age的值
 field.getInt(obj);
 ```
+3.如果是static的属性，则将Object替换成null
+```java
+package com.wii.test;
 
+import java.lang.reflect.Field;
+import java.util.HashMap;
+import java.util.Map;
+
+class ErrorCode{
+    public int code;
+    public String info;
+    public ErrorCode(int code,String info){
+        this.code = code;
+        this.info = info;
+    }
+}
+
+class Errors{
+    public static ErrorCode errorCode1 = new ErrorCode(1,"error1");
+    public static ErrorCode errorCode2 = new ErrorCode(2,"error2");
+    public static String hello = "hello";
+}
+
+public class Test3 {
+
+    public static void main(String[] args) throws IllegalAccessException {
+        Field [] allFiled = Errors.class.getFields();
+        Map<Integer,String> error2Info = new HashMap<>();
+
+        for (Field field : allFiled){
+            if(field.getType() == ErrorCode.class){
+                System.out.println("find error code");
+                ErrorCode errorCode = (ErrorCode)field.get(null);//null replace object
+                error2Info.put(errorCode.code,errorCode.info);
+            }
+        }
+
+        for(Map.Entry<Integer,String> entry : error2Info.entrySet()){
+            System.out.println(entry.getKey()+" "+entry.getValue());
+        }
+    }
+}
+
+```
 
 
