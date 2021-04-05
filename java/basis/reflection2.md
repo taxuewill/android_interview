@@ -18,10 +18,13 @@
 
 
   
-**主题接口：**Subject 是委托对象和代理对象都共同实现的接口，即代理类的所实现的行为接口。Request\(\) 是委托对象和代理对象共同拥有的方法。  
-**目标对象：**ReaSubject 是原对象，也就是被代理的对象。  
-**代理对象：**Proxy 是代理对象，用来封装真是主题类的代理类。  
-**客户端 ：**使用代理类和主题接口完成一些工作。
+**主题接口：** Subject 是委托对象和代理对象都共同实现的接口，即代理类的所实现的行为接口。Request是委托对象和代理对象共同拥有的方法。
+
+**目标对象：** ReaSubject 是原对象，也就是被代理的对象。
+
+**代理对象：** Proxy 是代理对象，用来封装真是主题类的代理类。
+
+**客户端 ：** 使用代理类和主题接口完成一些工作。
 
 ##### 3、代理模式的分类
 
@@ -119,11 +122,11 @@ Proxy提供了如下两个方法来创建动态代理类和动态代理实例。
         //创建一个InvocationHandler对象
         InvocationHandler handler = new MyInvocationHandler(.args..);
         //使用Proxy生成一个动态代理类
-        Class proxyClass = Proxy.getProxyClass(RealSubject.class.getClassLoader(),RealSubject.class.getInterfaces(), handler);
+        Class proxyClass = Proxy.getProxyClass(RealSubject.class.getClassLoader(),RealSubject.class.getInterfaces());
         //获取proxyClass类中一个带InvocationHandler参数的构造器
         Constructor constructor = proxyClass.getConstructor(InvocationHandler.class);
         //调用constructor的newInstance方法来创建动态实例
-        RealSubject real = (RealSubject)constructor.newInstance(handler);
+        Subject real = (Subject)constructor.newInstance(handler);
 ```
 
 ```java
