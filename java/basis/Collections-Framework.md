@@ -31,7 +31,7 @@ Collection接口是Set,Queue,List的父接口。Collection接口中定义了多�
 其中重点介绍iterator()方法，该方法的返回值是Iterator<E>。
 
 #### 1.2.使用Iterator遍历集合元素
-Iterator接口经常被称作迭代器，它是Collection接口的父接口。但Iterator主要用于遍历集合中的元素。
+Iterator接口经常被称作迭代器，Iteratable是Collection接口的父接口。但Iterator主要用于遍历集合中的元素。
 Iterator接口中主要定义了2个方法：
 
 ![](http://upload-images.jianshu.io/upload_images/3985563-63737a2d81713a47.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
