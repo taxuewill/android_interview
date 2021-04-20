@@ -47,7 +47,7 @@
 
 BlockingQueue虽然比起Queue在操作上提供了更多的支持，但是它在使用有如下的几点:
 
-> 1. BlockingQueue中是不允许添加null的，该在声明的时候就要求所有的实现类在接收到一个null的时候，都应该抛出NullPointerException。
+> 1. BlockingQueue中是不允许添加null的，该接口在声明的时候就要求所有的实现类在接收到一个null的时候，都应该抛出NullPointerException。
 > 2. BlockingQueue是线程安全的，因此它的所有和队列相关的方法都具有原子性。但是对于那么从Collection接口中继承而来的批量操作方法，比如addAll(Collection e)等方法，BlockingQueue的实现通常没有保证其具有原子性，因此我们在使用的BlockingQueue，应该尽可能地不去使用这些方法。
 > 3. BlockingQueue主要应用于生产者与消费者的模型中，其元素的添加和获取都是极具规律性的。但是对于remove(Object o)这样的方法，虽然BlockingQueue可以保证元素正确的删除，但是这样的操作会非常响应性能，因此我们在没有特殊的情况下，也应该避免使用这类方法。
 
