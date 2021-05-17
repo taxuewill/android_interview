@@ -20,7 +20,7 @@
 
 1. add方法在将一个元素插入到队列的尾部时，如果出现队列已经满了，那么就会抛出IllegalStateException,而使用offer方法时，如果队列满了，则添加失败,返回false,但并不会引发异常。
 2. remove方法是获取队列的头部元素并且删除，如果当队列为空时，那么就会抛出NoSuchElementException。而poll在队列为空时，则返回一个null。
-3. element方法是从队列中获取到队列的第一个元素，但不会删除，但是如果队列为空时，那么它就会抛出NoSuchElementException。peek方法与之类似，只是不会抛出异常，而是返回false。
+3. element方法是从队列中获取到队列的第一个元素，但不会删除，但是如果队列为空时，那么它就会抛出NoSuchElementException。peek方法与之类似，只是不会抛出异常，而是返回null。
 
 后面我们在分析ArrayBlockingQueue的方法时，主要也是围绕着这几个方法来进行分析。
 
